@@ -11,7 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by chenb-c on 2017/1/4.
+ * @author  chenb-c
+ * @date 2017/1/4.
  */
 @WebServlet("/hello")
 public class HelloServler extends HttpServlet {
