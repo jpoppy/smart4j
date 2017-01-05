@@ -34,6 +34,13 @@
             <scope>runtime</scope>
             <!-- 只是运行时需要 无需参与编译 -->
         </dependency>
+        <!-- Junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
