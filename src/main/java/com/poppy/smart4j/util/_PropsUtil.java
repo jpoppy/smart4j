@@ -13,8 +13,8 @@ import java.util.Properties;
  * @author chenb-c
  * @date 2017/1/6
  */
-public class PropsUtil {
-    private static  final Logger LOGGER= LoggerFactory.getLogger(PropsUtil.class);
+public class _PropsUtil {
+    private static  final Logger LOGGER= LoggerFactory.getLogger(_PropsUtil.class);
 
     public static Properties loadProps(String fileName){
         Properties properties = null;
