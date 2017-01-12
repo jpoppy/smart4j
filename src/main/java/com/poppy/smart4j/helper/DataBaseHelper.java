@@ -2,12 +2,15 @@ package com.poppy.smart4j.helper;
 
 import com.poppy.smart4j.service.CustomerService;
 import com.poppy.smart4j.util._PropsUtil;
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -18,6 +21,7 @@ import java.util.Properties;
  */
 public class DataBaseHelper {
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
+    private static final QueryRunner QUERY_RUNNER = new QueryRunner();
     private static final String DRIVER;
     private static final String URL;
     private static final String USERNAME;
@@ -65,5 +69,27 @@ public class DataBaseHelper {
             }
         }
 
+    }
+
+    /**
+     * 查询实体列表
+     *
+     * @param entityClass
+     * @param sql
+     * @param params
+     * @param <T>
+     * @return
+     */
+    public static <T> List<T> queryEntityList(Class<T> entityClass, String sql, Object... params) {
+        List<T> entityList = null;
+        Connection connection = getConnection();
+        try {
+            entityList = QUERY_RUNNER.query(connection, sql, new BeanListHandler<T>(entityClass), params);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection(connection);
+        }
+        return entityList;
     }
 }

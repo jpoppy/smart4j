@@ -33,9 +33,15 @@ public class CustomerService {
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Customer customer = new Customer();
-
+                customer.setId(rs.getLong("id"));
+                customer.setName(rs.getString("name"));
+                customer.setContact(rs.getString("contact"));
+                customer.setTelephone(rs.getString("telephone"));
+                customer.setEmail(rs.getString("email"));
+                customer.setRemark(rs.getString("remark"));
+                customers.add(customer);
             }
         } catch (SQLException e) {
             e.printStackTrace();

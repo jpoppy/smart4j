@@ -2,6 +2,7 @@ package com.poppy.smart4j.model;
 
 /**
  * 客户
+ *
  * @author chenb-c
  * @date 2017/1/5.
  */
@@ -11,7 +12,7 @@ public class Customer {
     private String contact;
     private String telephone;
     private String email;
-    private String remart;
+    private String remark;
 
     public long getId() {
         return id;
@@ -54,10 +55,10 @@ public class Customer {
     }
 
     public String getRemart() {
-        return remart;
+        return remark;
     }
 
-    public void setRemart(String remart) {
-        this.remart = remart;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }
